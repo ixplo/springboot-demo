@@ -32,3 +32,14 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+task buildFrontend(type: Exec) {
+	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+		commandLine 'cmd', '/c', 'cd frontend && npm run build && xcopy dist\\website\\browser\\* ..\\src\\main\\resources\\static\\ /Y /E '
+	} else {
+		commandLine 'sh', '-c', 'cd frontend && npm run build && cp -r dist/website/browser/* ../src/main/resources/static/'
+	}
+}
+
+build.dependsOn buildFrontend
+bootJar.dependsOn buildFrontend
