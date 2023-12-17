@@ -35,11 +35,23 @@ tasks.named('test') {
 
 task buildFrontend(type: Exec) {
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		commandLine 'cmd', '/c', 'cd frontend && npm run build && xcopy dist\\website\\browser\\* ..\\src\\main\\resources\\static\\ /Y /E '
+		commandLine 'cmd', '/c', 'cd frontend && npm run build'
 	} else {
-		commandLine 'sh', '-c', 'cd frontend && npm run build && cp -r dist/website/browser/* ../src/main/resources/static/'
+		commandLine 'sh', '-c', 'cd frontend && npm run build'
 	}
 }
 
 build.dependsOn buildFrontend
 bootJar.dependsOn buildFrontend
+
+sourceSets {
+	main {
+		resources {
+			srcDirs "src/main/resources", "frontend/dist"
+		}
+	}
+}
+
+tasks.withType(Copy).all {
+	duplicatesStrategy 'exclude'
+}

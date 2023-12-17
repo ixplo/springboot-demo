@@ -41,9 +41,7 @@ These additional references should also help you:
 * run `java -jar springboot-demo-0.0.1-SNAPSHOT.jar`
 * application started on http://localhost:8080/
 * create user: 
-  `curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{"username":"xyz","password":"xyz"}' \
+  `curl --header "Content-Type: application/json" --request POST --data '{"username":"xyz","password":"xyz"}' http://localhost:8080/api/user/add'
   http://localhost:8080/api/user/add`
 * open http://localhost:8080/
 * login with created user

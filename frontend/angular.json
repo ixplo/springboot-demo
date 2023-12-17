@@ -10,27 +10,27 @@
           "style": "scss"
         }
       },
-      "root": "apps/website",
-      "sourceRoot": "apps/website/src",
+      "root": "",
+      "sourceRoot": "apps/src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/website",
-            "index": "apps/website/src/index.html",
-            "browser": "apps/website/src/main.ts",
+            "outputPath": "dist/static",
+            "index": "apps/src/index.html",
+            "main": "apps/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "apps/website/tsconfig.app.json",
+            "tsConfig": "apps/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/website/src/favicon.ico",
-              "apps/website/src/assets"
+              "apps/src/favicon.ico",
+              "apps/src/assets"
             ],
             "styles": [
-              "apps/website/src/styles.scss"
+              "apps/src/styles.scss"
             ],
             "scripts": []
           },
@@ -83,14 +83,14 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "apps/website/tsconfig.spec.json",
+            "tsConfig": "apps/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/website/src/favicon.ico",
-              "apps/website/src/assets"
+              "apps/src/favicon.ico",
+              "apps/src/assets"
             ],
             "styles": [
-              "apps/website/src/styles.scss"
+              "apps/src/styles.scss"
             ],
             "scripts": []
           }
